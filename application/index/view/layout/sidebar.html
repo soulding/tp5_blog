@@ -1,0 +1,55 @@
+<div class="am-u-md-4 am-u-sm-12 blog-sidebar">
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>About ME</span></h2>
+            <img src="__HOME__/i/user.jpg" alt="about me" class="blog-entry-img" >
+            <p>程序猿</p>
+            <p>
+        {$set['about_me']}
+        </p><p>我不想成为一个庸俗的人。十年百年后，当我们死去，质疑我们的人同样死去，后人看到的是裹足不前、原地打转的你，还是一直奔跑、走到远方的我？</p>
+        </div>
+        <div class="blog-sidebar-widget blog-bor">
+            <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
+            <p>
+                <a href="javascript:;" id="qq" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 1, width: 300, height: 150}"><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a><!-- 
+                <a href=""><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+                <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                <a href=""><span class="am-icon-reddit am-icon-fw blog-icon"></span></a>
+                <a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a> -->
+            </p>
+        </div>
+        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+          <div class="am-modal-dialog">
+            <div class="am-modal-hd">联系方式
+              <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
+            </div>
+            <div class="am-modal-bd">
+             QQ：1069288356
+            </div>
+          </div>
+        </div>
+        <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
+            <h2 class="blog-title"><span>TAG cloud</span></h2>
+            
+            {include file="layout/tag"}
+            
+        </div>
+        <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g">
+            <h2 class="blog-title"><span>友情链接</span></h2>
+            <div class="am-u-sm-12 blog-clear-padding">
+            <a href="http://www.amazeui.org/" target="_blank" class="blog-tag">AmazeUI</a>
+            </div>
+           <!--  <ul class="am-list">
+               <li><a href="#">每个人都有一个死角， 自己走不出来，别人也闯不进去。</a></li>
+               <li><a href="#">我把最深沉的秘密放在那里。</a></li>
+               <li><a href="#">你不懂我，我不怪你。</a></li>
+               <li><a href="#">每个人都有一道伤口， 或深或浅，盖上布，以为不存在。</a></li>
+           </ul> -->
+        </div>
+    </div>
+    <script type="text/javascript">
+        $('#qq').hover(function(){
+
+        },function(){
+
+        });
+    </script>

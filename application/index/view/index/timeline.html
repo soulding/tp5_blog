@@ -1,0 +1,34 @@
+{include file="layout/header"}
+<!-- content srart -->
+<title>时间轴 | {$set['blog_title']}</title>
+<div class="am-g am-g-fixed blog-fixed blog-content">
+    <div class="am-u-md-8 am-u-sm-12">
+        <h1 class="blog-text-center">-- 机器猫的时光机 --</h1>
+        {foreach name="data" item="vo" key="k"}
+        <div class="timeline-year">
+            <h1>{$k}</h1>
+            <hr>
+                {foreach name="vo" item="vo1" key="k1"}
+                <ul>
+                    <h3>{$k1}月</h3>
+                    <hr>
+                    {foreach name="vo1" item="vo2"}
+                    <li>
+                        <span class="am-u-sm-5 am-u-md-3 timeline-span">{$vo2.createtime |date="Y-m-d",###}</span>
+                        <span class="am-u-sm-7 am-u-md-6"><a href="{:url('/article/'.$vo2.id)}">{$vo2.title}</a></span>
+                        <span class="am-u-sm-2 am-u-md-1 am-hide-sm-only"><a href="/?category={$vo2.category}">{$vo2.category}</a></span>
+                        <span class="am-u-sm-2 am-u-md-2 am-hide-sm-only">{$vo2.author}</span>
+                    </li>
+                    {/foreach}
+                </ul>
+                <br>
+                {/foreach}
+        <br><br></div>
+        {/foreach}
+        <hr>
+    </div>
+    {include file="layout/sidebar"}
+</div>
+<!-- content end -->
+
+ {include file="layout/footer"}

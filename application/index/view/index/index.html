@@ -1,0 +1,49 @@
+{include file="layout/header"}
+<!-- content srart -->
+<title>{$set['blog_title']}</title>
+<style>
+    .img{
+        -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    transition: opacity 0.35s, transform 0.35s;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    }
+    .img:hover{opacity: 0.8;
+    -webkit-transform: scale(0.9);
+    transform: scale(0.9);}
+</style>
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-md-8 am-u-sm-12">
+        {empty name="article_list"}
+        <article class="am-g blog-entry-article">
+            主人很懒，这个板块还没有发什么东西~
+        </article>
+        {else /}
+        {foreach name="article_list" item="vo"}
+        <article class="am-g blog-entry-article">
+            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-img ">
+                <a href="{:url('/article/'.$vo.id)}"><img src="{$vo.illustration ?? '__HOME__/i/f10.jpg'}" alt="" class="img am-u-sm-12 "></a>
+            </div>
+            <div class="am-u-lg-6 am-u-md-12 am-u-sm-12 blog-entry-text">
+                
+                <h1><a href="{:url('/article/'.$vo.id)}">{$vo.title}</a></h1>
+                <p>{$vo.abstract}</p>
+                
+                    
+                <span><span class="am-icon-clock-o am-icon-fw am-primary "></span> {$vo.createtime |date="Y-m-d",###}&nbsp;</span>
+                <span><span class="am-icon-user am-icon-fw am-secondary "></span> {$vo.author}&nbsp;</span>
+                <!-- <span><span class="am-icon-eye am-icon-fw am-primary "> </span> 100&nbsp;</span> -->
+                <span><a href="/?category={$vo.category}"><span class="am-icon-ellipsis-v am-icon-fw am-primary "></span> {$vo.category}</a></span>
+                    
+            </div>
+        </article>
+        {/foreach}
+        {/empty}
+        {$pageinate}
+    </div>
+{include file="layout/sidebar"}
+    
+</div>
+<!-- content end -->
+
+{include file="layout/footer"}

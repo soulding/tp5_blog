@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link rel="stylesheet" href="__HOME__/css/amazeui.min.css">
+	<link rel="stylesheet" href="__HOME__/css/app.css">
+
+	<!--[if (gte IE 9)|!(IE)]><!-->
+	<script src="__HOME__/js/jquery.min.js"></script>
+	<!--<![endif]-->
+	<!--[if lte IE 8 ]>
+	<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+	<script src="__HOME__/js/amazeui.ie8polyfill.min.js"></script>
+	<![endif]-->
+	<script src="__HOME__/js/amazeui.min.js"></script>
+  <script src="__JS__/layui/layui.all.js"></script>
+	<!-- <script src="__HOME__/js/app.js"></script> -->
+</head>
+
+<body id="blog">
+
+<header class="am-g am-g-fixed blog-fixed blog-text-center blog-header">
+    <div class="am-u-sm-8 am-u-sm-centered">
+        <h2 class="am-hide-sm-only">{$set['blog_title']}</h2>
+    </div>
+</header>
+<hr>
+<nav class="am-g am-g-fixed blog-fixed blog-nav">
+<button class="am-topbar-btn am-topbar-toggle am-btn am-btn-sm am-btn-success am-show-sm-only blog-button" data-am-collapse="{target: '#blog-collapse'}" ><span class="am-sr-only">导航切换</span> <span class="am-icon-bars"></span></button>
+
+  <div class="am-collapse am-topbar-collapse" id="blog-collapse">
+    <ul class="am-nav am-nav-pills am-topbar-nav">
+      <li class="{if $Request.path=='/'}am-active{/if}"><a href="/">首页</a></li>
+      <li class="am-dropdown" data-am-dropdown>
+        <a class="am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+         分类 <span class="am-icon-caret-down"></span>
+        </a>
+        <ul class="am-dropdown-content">
+          {foreach name="category" item="vo"}
+          <li><a href="/?category={$vo.name}">{$vo.name}</a></li> 
+          {/foreach}
+        </ul>
+      </li><!-- 
+      <li><a href="lw-article.html">说说</a></li>
+      <li><a href="lw-img.html">图片库</a></li> -->
+      <li class="{if $Request.path=='timeline'}am-active{/if}"><a href="{:url('/timeline')}">时间轴</a></li>
+    </ul>
+    <form method="get" action="/" class="am-topbar-form am-topbar-right am-form-inline" role="search">
+      <div class="am-form-group">
+        <input type="text" name="wd" class="am-form-field am-input-sm" placeholder="搜索">
+      </div>
+    </form>
+  </div>
+</nav>
+<hr>

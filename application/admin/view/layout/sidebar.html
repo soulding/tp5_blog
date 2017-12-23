@@ -1,0 +1,51 @@
+<!-- 风格切换 -->
+<div class="tpl-skiner">
+    <div class="tpl-skiner-toggle am-icon-cog">
+    </div>
+    <div class="tpl-skiner-content">
+        <div class="tpl-skiner-content-title">
+            选择主题
+        </div>
+        <div class="tpl-skiner-content-bar">
+            <span class="skiner-color skiner-white" data-color="theme-white"></span>
+            <span class="skiner-color skiner-black" data-color="theme-black"></span>
+        </div>
+    </div>
+</div>
+<!-- 侧边导航栏 -->
+<div class="left-sidebar">
+    <!-- 用户信息 -->
+    <div class="tpl-sidebar-user-panel">
+        <div class="tpl-user-panel-slide-toggleable">
+            <div class="tpl-user-panel-profile-picture">
+                <img src="__ADMIN__/img/user.png" alt="">
+            </div>
+            <span class="user-panel-logged-in-text">
+      <i class="am-icon-circle-o am-text-success tpl-user-panel-status-icon"></i>
+      {:session('name')}
+  </span>
+            <a href="javascript:;" class="tpl-user-panel-action-link"> <span class="am-icon-pencil"></span> 账号设置</a>
+        </div>
+    </div>
+
+    <!-- 菜单 -->
+    <ul class="sidebar-nav">
+        <li class="sidebar-nav-heading">Option <span class="sidebar-nav-heading-info"> 功能</span></li>
+        <li class="sidebar-nav-link">
+            <a href="{:url('/admin')}" class="{if $Request.path=='admin'}active{/if}">
+                <i class="am-icon-home sidebar-nav-link-logo"></i>首页
+            </a>
+        </li>
+        <li class="sidebar-nav-link">
+            <a href="{:url('/set')}" class="{if $Request.path=='set'}active{/if}">
+                <i class="am-icon-cog sidebar-nav-link-logo"></i> 设置
+            </a>
+        </li> 
+        <li class="sidebar-nav-link">
+            <a href="{:url('/articlelist')}" class="{if $Request.path=='articlelist'}active{/if}">
+                <i class="am-icon-clone sidebar-nav-link-logo"></i> 文章管理
+            </a>
+        </li>
+
+    </ul>
+</div>

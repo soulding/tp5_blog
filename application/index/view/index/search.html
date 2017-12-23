@@ -1,0 +1,37 @@
+{include file="layout/header"}
+<!-- content srart -->
+<title>搜索结果 | {$set['blog_title']}</title>
+<div class="am-g am-g-fixed blog-fixed">
+    <div class="am-u-md-8 am-u-sm-12">
+        <ol class="am-breadcrumb">
+          <li><a href="/" class="am-icon-home">首页</a></li>
+          <li>搜索</li>
+          <li class="am-active">{:input('get.wd')}</li>
+        </ol>
+       <table class="am-table">
+            <tbody>
+                {empty name="searchs"}
+                <tr>
+                    
+                    <td style="text-align: center;">什么也没找到呀~</td>
+                    
+                </tr>
+                {else /}
+                {foreach name="searchs" item="vo"}
+                <tr>
+                    
+                    <td width="80%"><a style="display: block;" href="/">{$vo.title}</a></td>
+                    <td style="text-align: right;">{$vo.createtime |date="Y-m-d",###}</td>
+                    
+                </tr>
+                {/foreach}
+                {/empty}
+            </tbody>
+        </table>
+    </div>
+{include file="layout/sidebar"}
+    
+</div>
+<!-- content end -->
+
+{include file="layout/footer"}

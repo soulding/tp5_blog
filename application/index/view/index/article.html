@@ -1,0 +1,101 @@
+{include file="layout/header"}
+<!-- content start -->
+<title>{$article['title']}-{$article['abstract']} | {$set['blog_title']}</title>
+<div class="am-g am-g-fixed blog-fixed blog-content">
+    <div class="am-u-md-8 am-u-sm-12">
+      <article class="am-article blog-article-p">
+        <div class="am-article-hd">
+          <h1 class="am-article-title blog-text-center">{$article['title']}</h1>
+          <p class="am-article-meta blog-text-center">
+              <span><a href="javascript:;" >{$article['category']} &nbsp;</a></span>-
+              <span><a href="javascript:;">@{$article['author']} &nbsp;</a></span>-
+              <span><a href="javascript:;">{$article['createtime'] |date="Y-m-d",###}</a></span>
+          </p>
+        </div>        
+        <div class="am-article-bd">
+          <img src="{$article['illustration']}" alt="" class="blog-entry-img blog-article-margin">          
+          <p class="class='am-article-lead'">          
+            <h3>{$article['abstract']}</h3>
+            <hr>
+            <p>{$article['content']|htmlspecialchars_decode}</p>
+          </p>
+        </div>
+      </article>
+        
+        <!-- <div class="am-g blog-article-widget blog-article-margin">
+          <div class="am-u-lg-4 am-u-md-5 am-u-sm-7 am-u-sm-centered blog-text-center">
+            <span class="am-icon-tags"> &nbsp;</span><a href="#">标签</a> , <a href="#">TAG</a> , <a href="#">啦啦</a>
+            <hr>
+            <a href=""><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a>
+            <a href=""><span class="am-icon-wechat am-icon-fw blog-icon"></span></a>
+            <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+          </div>
+        </div> -->
+        <hr>
+        <ul class="am-pagination blog-article-margin">
+          {$randhtml}
+        </ul>
+        
+        <hr>
+
+        <!-- <form class="am-form am-g">
+            <h3 class="blog-comment">评论</h3>
+          <fieldset>
+            <div class="am-form-group am-u-sm-4 blog-clear-left">
+              <input type="text" class="" placeholder="名字">
+            </div>
+            <div class="am-form-group am-u-sm-4">
+              <input type="email" class="" placeholder="邮箱">
+            </div>
+        
+            <div class="am-form-group am-u-sm-4 blog-clear-right">
+              <input type="password" class="" placeholder="网站">
+            </div>
+        
+            <div class="am-form-group">
+              <textarea class="" rows="5" placeholder="一字千金"></textarea>
+            </div>
+        
+            <p><button type="submit" class="am-btn am-btn-default">发表评论</button></p>
+          </fieldset>
+        </form>
+        
+        <hr>
+         <ul class="am-comments-list">
+          <li class="am-comment">
+            <a href="#link-to-user-home">
+              <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96/q/80" alt="" class="am-comment-avatar" width="48" height="48">
+            </a>
+            <div class="am-comment-main">
+              <header class="am-comment-hd">
+                <div class="am-comment-meta">
+                  <a href="#link-to-user" class="am-comment-author">某人</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-12 15:30</time>
+                </div>
+              </header>
+              <div class="am-comment-bd">
+                <p>《永远的蝴蝶》一文，还吸收散文特长，多采用第一人称，淡化情节，体现一种思想寄托和艺术追求。</p>
+              </div>
+            </div>
+          </li>
+          <li class="am-comment">
+            <a href="#link-to-user-home">
+              <img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96/q/80" alt="" class="am-comment-avatar" width="48" height="48">
+            </a>
+            <div class="am-comment-main">
+              <header class="am-comment-hd">
+                <div class="am-comment-meta">
+                  <a href="#link-to-user" class="am-comment-author">路人甲</a> 评论于 <time datetime="2013-07-27T04:54:29-07:00" title="2013年7月27日 下午7:54 格林尼治标准时间+0800">2014-7-13 0:03</time>
+                </div>
+              </header>
+              <div class="am-comment-bd">
+                <p>感觉仿佛是自身的遭遇一样，催人泪下</p>
+              </div>
+            </div>
+          </li>
+        </ul> -->
+    </div>
+
+   {include file="layout/sidebar"}
+</div>
+<!-- content end -->
+{include file="layout/footer"}

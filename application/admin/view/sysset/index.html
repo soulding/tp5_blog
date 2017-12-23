@@ -1,0 +1,87 @@
+{include file="layout/header"}
+{include file="layout/sidebar"}
+<!-- 内容区域 -->
+<style>
+    a {
+  color: inherit;
+}
+</style>
+<div class="tpl-content-wrapper">
+
+ 
+
+    <div class="row-content am-cf">
+        <div class="row">
+
+                    <div class="am-u-sm-12 am-u-md-12 am-u-lg-12">
+                        <div class="widget am-cf">
+                            <div class="widget-head am-cf">
+                                <div class="widget-title am-fl">博客设置</div>
+                                <div class="widget-function am-fr">
+                                    <a href="javascript:;" class="am-icon-cog"></a>
+                                </div>
+                            </div>
+                            <div class="widget-body am-fr">
+
+                                <form id="set_form" class="am-form tpl-form-border-form tpl-form-border-br">
+                                    <div class="am-form-group">
+                                        <label for="" class="am-u-sm-3 am-form-label">前台博客标题<span class="tpl-form-line-small-title">Title</span></label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" name="blog_title" value="{$set['blog_title']}" class="tpl-form-input" placeholder="请输入前台标题文字">
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="user-name" class="am-u-sm-3 am-form-label">后台博客标题<span class="tpl-form-line-small-title">Title</span></label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" name="admin_title" value="{$set['admin_title']}" class="tpl-form-input" placeholder="请输入后台标题文字">
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="" class="am-u-sm-3 am-form-label">关于我<span class="tpl-form-line-small-title">About me</span></label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" name="about_me" value="{$set['about_me']}" class="tpl-form-input" placeholder="请输入关于我">
+                                        </div>
+                                    </div>
+                                    <div class="am-form-group">
+                                        <label for="" class="am-u-sm-3 am-form-label">博客底部<span class="tpl-form-line-small-title">Footer</span></label>
+                                        <div class="am-u-sm-9">
+                                            <input type="text" name="footer" value="{$set['footer']}" class="tpl-form-input" placeholder="请输入底部显示文字">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="am-form-group">
+                                        <div class="am-u-sm-9 am-u-sm-push-3">
+                                            <button type="button" class="am-btn am-btn-primary tpl-btn-bg-color-success btn-submit">提交</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    </div>
+</div>
+<script src="__JS__/ueditor/ueditor.config.js"></script>
+<script src="__JS__/ueditor/ueditor.all.js"></script>
+<script src="__ADMIN__/js/jquery.serializeJSON.js"></script>
+<script type="text/javascript">
+     $(function() {
+        $('.btn-submit').click(function(){
+            var formData = $("#set_form").serializeJSON();
+            $.ajax({    
+                type:"post",    
+                url:"{:url('/admin/sysset/post')}",    
+                data:formData,  
+                success:function(data){
+                    if(data.status == 1){
+                        location.reload();
+                    }  
+                }    
+            });
+        });
+        
+    });
+</script>
+{include file="layout/footer"}
