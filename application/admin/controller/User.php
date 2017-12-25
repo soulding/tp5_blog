@@ -5,7 +5,7 @@
  * @QQ    				: 1069288356
  * @Date  				: 2017-12-12 22:38:58
  * @Last Modified by	: dzy
- * @Last Modified time	: 2017-12-14 18:30:11
+ * @Last Modified time	: 2017-12-25 23:36:03
  */
 
 namespace app\admin\controller;
@@ -15,7 +15,7 @@ class User extends Controller
 	public function login(){
 		if(request()->isAjax()){
 			
-			$data = input('post.');
+			$data = input('post.');			
 			if(empty($data['name']) || empty($data['pwd'])){
 				return show_json(0,'不要搞事情哦！');
 			}
@@ -25,6 +25,9 @@ class User extends Controller
 			}
 			if (md5($data['pwd'] . $user['salt']) !== $user['pwd']) {
 				return show_json(0, '用户或密码错误');
+			}
+			if(!captcha_check($data['verify'])){
+				return show_json(0,'验证码错误！');
 			}
 			set_login($user);
 			return show_json(2,url('/admin'));

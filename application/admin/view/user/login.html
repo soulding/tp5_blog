@@ -17,6 +17,10 @@
     <link rel="stylesheet" href="__ADMIN__/css/amazeui.datatables.min.css" />
     <link rel="stylesheet" href="__ADMIN__/css/app.css">
     <script src="__ADMIN__/js/jquery.min.js"></script>
+    <style type="text/css">
+        .verify{position: relative;}
+        .code{position: absolute;top: -18px;right: 0}
+    </style>
 
 </head>
 
@@ -52,6 +56,12 @@
                         <input type="password" class="tpl-form-input" name="pwd" id="pwd" placeholder="请输入密码">
 
                     </div>
+
+                    <div class="am-form-group verify">
+                        <input type="text" class="tpl-form-input" name="verify" id="verify" placeholder="请输入验证码">
+                        <div class="code" style="display: none;">{:captcha_img()}</div>
+
+                    </div>
                     <div class="am-form-group tpl-login-remember-me">
                         <input id="remember-me" name="remember-me" value="1" type="checkbox">
                         <label for="remember-me">
@@ -74,6 +84,12 @@
     <script src="__ADMIN__/js/app.js"></script>
     <script src="__ADMIN__/js/jquery.serializeJSON.js"></script>
     <script type="text/javascript">
+        $('#verify').focus(function(){
+            $('.code').show();
+        })
+        $('.code').click(function(){
+            $(this).html('{:captcha_img()}')
+        })
         $('#btn-login').click(function(){
             var formData = $("#login_form").serializeJSON();
             if(formData.name == ''){
