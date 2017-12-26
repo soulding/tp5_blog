@@ -10,22 +10,23 @@
         <div class="blog-sidebar-widget blog-bor">
             <h2 class="blog-text-center blog-title"><span>Contact ME</span></h2>
             <p>
-                <a href="javascript:;" id="qq" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 1, width: 300, height: 150}"><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a><!-- 
-                <a href=""><span class="am-icon-github am-icon-fw blog-icon"></span></a>
-                <a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
+                <a href="javascript:;" id="qq"><span class="am-icon-qq am-icon-fw am-primary blog-icon"></span></a> 
+                <a href="https://github.com/dzyh" target="_blank"><span class="am-icon-github am-icon-fw blog-icon"></span></a>
+                <!--<a href=""><span class="am-icon-weibo am-icon-fw blog-icon"></span></a>
                 <a href=""><span class="am-icon-reddit am-icon-fw blog-icon"></span></a>
                 <a href=""><span class="am-icon-weixin am-icon-fw blog-icon"></span></a> -->
             </p>
         </div>
-        <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
-          <div class="am-modal-dialog">
-            <div class="am-modal-hd">联系方式
-              <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
-            </div>
-            <div class="am-modal-bd">
-             QQ：1069288356
-            </div>
-          </div>
+        <div class="notice" style="
+            display: none;  
+            line-height: 75px;
+            text-align: center;
+            width: 300px;
+            background: #5FB878;
+            color:#fff;
+            font-size: 1.2em;
+            font-family: Brush Script Std;
+            padding: 10px;">QQ：1069288356
         </div>
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g ">
             <h2 class="blog-title"><span>TAG cloud</span></h2>
@@ -47,9 +48,15 @@
         </div>
     </div>
     <script type="text/javascript">
-        $('#qq').hover(function(){
-
-        },function(){
-
+        $('#qq').click(function(){
+            layer.open({
+              type: 1,
+              shade: false,
+              title: false, 
+              content: $('.notice'), 
+              cancel: function(){
+                $('.notice').hide();
+              }
+            });
         });
     </script>
