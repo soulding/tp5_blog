@@ -70,8 +70,8 @@ class Articles extends Base
                     $image = \think\Image::open(ROOT_PATH.'wwwroot'.$img_url);
                     $image->thumb(333,150,\think\Image::THUMB_FIXED)->text('@碎念博客','simkai.ttf',10,'#FFFFFF')->save('.'.$img_url);
 					$insert['illustration'] = $img_url;
-				}
-                @unlink('.'.$article['illustration']);
+					@unlink('.'.$article['illustration']);
+				}                
 				db('articles')->where('id',$id)->update($insert);
 				show_message(1,'更新成功！',url('/articlelist'));				
 			}
