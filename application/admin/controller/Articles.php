@@ -56,6 +56,8 @@ class Articles extends Base
 					show_message(0,'上传图片失败！');
 					return $this->fetch('form',$data);
 				}
+				$image = \think\Image::open(ROOT_PATH.'wwwroot'.$img_url);
+                $image->thumb(333,150,\think\Image::THUMB_FIXED)->text('@碎念博客','simkai.ttf',10,'#FFFFFF')->save('.'.$img_url);
 				$insert['illustration'] = $img_url;
 				db('articles')->insert($insert);
 				show_message(1,'添加成功！',url('/articlelist'));
