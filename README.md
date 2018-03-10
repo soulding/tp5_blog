@@ -10,4 +10,4 @@
 
 线上环境centos7 + nginx1.12 + mysql5.5  + php7
 
-如果发现有问题，可以提交issues，或者邮箱联系我
+如果发现有问题，可以提交issues，或者dzy0112@163.com邮箱联系我
