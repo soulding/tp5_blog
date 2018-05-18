@@ -3,9 +3,11 @@ namespace app\index\controller;
 class Index extends Base
 {
     protected $category;
+	protected $articleCharts;
     function __construct(){
         parent::__construct();
         $this->category = db('articles_category')->order('sort','desc')->select();
+		$this->articleCharts = db('articles')->field('id,title')->order('count desc')->limit(5)->select();
     }
     public function index()
     {
@@ -53,7 +55,8 @@ class Index extends Base
             'category'      =>  $categorys,
             'article_list'  =>  $article_list,
             'pageinate'     =>  $pager,
-            'set'           => $this->setting 
+            'set'           => $this->setting,
+            'article_charts'=> $this->articleCharts 
         ]);
     }
     public function article($id)
@@ -61,6 +64,7 @@ class Index extends Base
         $data = array();
         $data['category'] = $this->category;
         $data['set'] = $this->setting;
+		$data['article_charts'] = $this->articleCharts;
         if(!empty($id)){
             $article = db('articles')->where('id',$id)->find();
             foreach($data['category'] as $vo){
@@ -115,7 +119,8 @@ class Index extends Base
     	return $this->fetch('timeline',[
             'category'  => $this->category,
             'set'       => $this->setting ,
-            'data'      => $data 
+            'data'      => $data,
+            'article_charts'=> $this->articleCharts 
         ]);
     }
    

@@ -46,8 +46,9 @@ CREATE TABLE `dzy_articles` (
   `category` int(10) DEFAULT NULL COMMENT '文章类别',
   `illustration` varchar(100) DEFAULT NULL COMMENT '插图',
   `is_hide` tinyint(3) DEFAULT NULL,
+  `count` int(10) DEFAULT '1' COMMENT '文章浏览量',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of dzy_articles

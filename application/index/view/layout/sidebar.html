@@ -34,6 +34,25 @@
             {include file="layout/tag"}
             
         </div>
+		<div class="blog-clear-margin blog-sidebar-widget blog-bor am-g">
+            <h2 class="blog-title"><span>文章排行榜</span></h2>
+            <ul class="am-list am-text-left">
+                {volist name="article_charts" id="vo"}
+                <li>
+                    <span class="am-badge am-badge-{switch name="$key" }
+                        {case value="0" }warning{/case}
+                        {case value="1"}success{/case}
+                        {case value="2"}secondary{/case}
+                        {case value="3"}primary{/case}
+                        {case value="4"}default{/case}
+                    {/switch} am-radius">
+                    {$key+1}</span>
+                    <a href="{:url('/article/'.$vo.id)}">{$vo.title}</a>
+                </li>
+
+                {/volist}
+           </ul>
+        </div>
         <div class="blog-clear-margin blog-sidebar-widget blog-bor am-g">
             <h2 class="blog-title"><span>友情链接</span></h2>
             <div class="am-u-sm-12 blog-clear-padding">
