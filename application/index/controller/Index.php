@@ -20,7 +20,8 @@ class Index extends Base
             return $this->fetch('search',[
             'category'      =>  $categorys,
             'set'           => $this->setting,
-            'searchs'       => $searchs
+            'searchs'       => $searchs,
+            'article_charts'=> $this->articleCharts
         ]);
         }
         $pindex = max(1, intval(input('get.page')));
