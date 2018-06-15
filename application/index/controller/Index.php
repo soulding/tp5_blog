@@ -100,7 +100,7 @@ class Index extends Base
     }
     public function timeline()
     {
-        $articles = db('articles')->order('createtime','desc')->select();
+        $articles = db('articles')->where('is_hide',0)->order('createtime','desc')->select();
         foreach ($articles as &$vo) {
            foreach($this->category as $row){
                 if($vo['category'] == $row['id']){
